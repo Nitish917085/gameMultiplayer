@@ -1,0 +1,69 @@
+.logReg{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}
+.formItems{
+    display: flex;
+    padding: 4px;
+    gap: 2px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+.logRegFromField{
+    width: 200px;
+    border: 0px;
+    padding: 3px;
+    border-left: 1px solid gray;
+    outline: none;
+}
+.formItemsButtons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+.isRegLogButton{
+    width: 100px;
+    background-color: rgb(104, 104, 223);
+    border: 0px solid white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.isRegLogButton:hover{
+    cursor: pointer;
+    background-color: #514ab0;
+}
+
+.isRegLogClick{
+    display: flex;
+    align-items: center;
+}
+
+.isRegLogClick:hover{
+    cursor: pointer;
+}

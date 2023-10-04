@@ -1,0 +1,15 @@
+.sideBar{
+    background-color: gray;
+    height: calc(100vh - 40px);
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap:10px
+}
+
+.navs{
+    cursor: pointer;
+    padding: 5px;
+    border-bottom: 1px solid rgb(12, 11, 11);
+}

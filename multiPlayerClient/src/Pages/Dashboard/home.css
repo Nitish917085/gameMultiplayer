@@ -1,0 +1,81 @@
+.homePage{
+    display: flex;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1629760946220-5693ee4c46ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    
+}
+
+.gameConatiner{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gameContainerSubClass{
+  display: flex;
+  gap: 10px;
+}
+.gameCards{
+  position: relative;
+  width: 250px;
+  height: 200px;
+  border-radius: 10px;
+  &:hover{
+    cursor: pointer;
+  }
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.5),
+    -5px -5px 10px rgba(255, 255, 255, 0.5);
+  &:hover{
+    z-index: 1;
+    width: 253px;
+    height: 203px;
+    box-shadow: 
+    5px 5px 10px rgba(29, 245, 10, 0.5),
+    -5px -5px 10px rgba(255, 255, 255, 0.5);
+  }
+}
+.gameImage{
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.gameTitle{
+  position: absolute;
+  left: 40px;
+  top: 70px;
+ 
+  font-size: 2rem;
+  z-index: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #001562, #d1e808);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-fill-color: transparent;
+}
+
+.snake{
+  left: 60px;
+  top: 70px;
+  background: linear-gradient(45deg, #f90606, #f82dc5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2.5rem;
+}
+.chess{
+  left: 60px;
+  top: 70px;
+  background: linear-gradient(45deg, #13ef07, #0679ab);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 2.5rem;
+
+}
+

@@ -1,0 +1,36 @@
+.loadingContainer {
+    color: #07fdc7;
+    font-size: large;
+
+}
+
+#loadingroom_id {
+    background-color: rgba(118, 232, 169, 0.5);;
+    border-radius: 5px;
+    padding: 5px;
+    
+    color: #ebfc01;
+    font-size: 3rem;
+    :hover{
+        cursor: pointer;
+    }
+    &>div {
+        &>p {
+            background-color: aliceblue;
+            padding: 15px;
+            border-radius: 5px;
+            width: fit-content;
+            cursor: pointer;
+        }
+    }
+
+}
+
+
+
+#loadingroom_idcontainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

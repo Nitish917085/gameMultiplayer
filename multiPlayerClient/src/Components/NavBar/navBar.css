@@ -1,0 +1,47 @@
+.navBarContainer{
+    display: flex;
+    padding: 5px;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(48, 83, 83);
+    background-image: url('https://images.unsplash.com/photo-1680967764054-97e008c5235b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1768&q=80');
+
+    box-shadow: 
+    10px 10px 10px rgba(199, 191, 191, 0.5),
+    -5px -5px 10px rgba(255, 255, 255, 0.5);
+}
+
+.userName{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap:10px;
+    right: 20px;
+    justify-self: flex-end;
+}
+
+.logout{
+    background-color: rgb(250, 66, 66);
+    padding: 5px 20px;
+    border-radius: 6px;
+}
+.logout:hover{
+    cursor: pointer;
+    background-color: rgb(241, 149, 133);
+}
+
+.appName{
+      
+    font-size: 2rem;
+    z-index: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #001562, #d1e808);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-fill-color: transparent;
+  }

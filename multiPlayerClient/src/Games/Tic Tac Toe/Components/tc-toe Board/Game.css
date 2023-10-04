@@ -1,0 +1,71 @@
+.boardContainer {
+  width: 100vw;
+  display: flex;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &>.boardSlate {  
+    width: 400px;
+    height: 400px;
+
+    &>.status{
+      display: flex;
+      justify-content: center;
+    }
+
+    &>.playAgainButton{
+      display: flex;
+      justify-content: center;
+        &>div{
+          padding: 7px;
+          border-radius: 5px;
+          background-color: #04862d;
+          :hover{
+            cursor: pointer;
+          }
+        }
+    }
+
+    &>.Board_game {
+      border-radius: 2px;
+      padding: 5px;
+      width: 100%;
+      height: 100%;
+      margin: 1px;
+      background-color: rgba(189, 189, 244, 0.8);
+
+      &>.board-row {
+        display: flex;
+        height: 33%;
+        gap: 1px;
+
+        &>div {
+
+          height: 100%;
+          width: 33%;
+          gap: 1px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 3rem;
+          box-shadow:
+            5px 5px 10px rgba(0, 0, 0, 0.5),
+            -5px -5px 10px rgba(255, 255, 255, 0.5);
+
+          font-size: 48px;
+          font-weight: bold;
+          text-transform: uppercase;
+          background: linear-gradient(45deg, #04862d, #f57595);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+          text-fill-color: transparent;
+        }
+      }
+    }
+
+  }
+}
