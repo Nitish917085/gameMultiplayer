@@ -70,6 +70,9 @@ const LogReg = () => {
       navigate(`/home`);
     } else return;
   };
+  const resetPassword=()=>{
+    navigate('/ResetPassword')
+  }
 
   useEffect(() => {
     checkTokenExist();
@@ -144,7 +147,9 @@ const LogReg = () => {
               {isRegLog ? "Login?" : "Register?"}
             </span>
           </div>
+          <span className="resetPassword" onClick={()=>resetPassword()}>Reset Password?</span>
         </form>
+
       </div>
     </>
   );

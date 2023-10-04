@@ -76,3 +76,7 @@
     cursor: pointer;
 }
 
+.resetPassword{
+    cursor: pointer;
+    color: blue;
+}

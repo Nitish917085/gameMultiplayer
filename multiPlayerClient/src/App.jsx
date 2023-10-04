@@ -15,6 +15,7 @@ import CheckerSinglePlayer from "./Games/Checkers/SinglePlayer/CheckerSinglePlay
 import CheckersMultiPlayerConfig from "./Games/Checkers/MultiPlayer/Pages/CheckersMultiPlayerConfig";
 import CheckersMultiPlayerHome from "./Games/Checkers/MultiPlayer/Pages/CheckersMultiPlayerHome";
 import TicTacToeSinglePlayer from "./Games/TicTacToe/SinglePlayer/TicTacToeSinglePlayer";
+import ForgotPassword from "./Pages/ForgotPassword/ResetPasword";
 
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
 
           //Snake Routes
           <Route exact path="/SnakeSinglePlayer" element={<CommingSoon/>}/>
+
+          //Forgot Password
+          <Route exact path="/ResetPassword" element={<ForgotPassword/>}/>
+ 
 
         </Routes>
       </Router>
