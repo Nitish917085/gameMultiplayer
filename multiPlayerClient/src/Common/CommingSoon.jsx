@@ -1,8 +1,13 @@
 import React from 'react'
+import './CommingSoon.css'
 
 const CommingSoon = () => {
   return (
-    <div>CommingSoon</div>
+    <div className='coomingSoon'>
+      <div>
+        Cooming Soon
+      </div>
+    </div>
   )
 }
 

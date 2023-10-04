@@ -1,0 +1,16 @@
+.coomingSoon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+    background-image: url('https://images.unsplash.com/photo-1629760946220-5693ee4c46ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+
+
+    font-size: 2rem;
+    z-index: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-clip: text;
+    text-shadow: 2px 2px 4px rgba(184, 21, 21, 0.5);
+    text-fill-color: transparent;
+}

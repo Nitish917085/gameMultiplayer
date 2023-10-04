@@ -26,7 +26,10 @@ const Home = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
-  
+
+  const handleSnakeSelect=()=>{
+    navigate('/SnakeSinglePlayer')
+  }
   useEffect(() => {
   }, [response])
 
@@ -52,7 +55,7 @@ const Home = () => {
 
           </div>
           <div className="gameContainerSubClass">
-            <div className="gameCards" onClick={() => selectGame()}>
+            <div className="gameCards" onClick={() => handleSnakeSelect()}>
               <img className="gameImage" src="https://media.istockphoto.com/id/1343390045/photo/diy-summer-craft-for-kids-how-to-make-serpent-from-plastic-bottle-cap-homemade-handicraft.jpg?s=1024x1024&w=is&k=20&c=o1NNgs24YwsZ__7ApbC-5GXeChm8IeUf3pTpwtELtp8=" />
               <div className="gameTitle snake"> Snake</div>
 

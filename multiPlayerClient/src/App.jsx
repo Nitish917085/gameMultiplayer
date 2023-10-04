@@ -1,25 +1,20 @@
-import { useState } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 import LogReg from "./Pages/Login/LogReg";
 import Home from "./Pages/Dashboard/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import { useSelector } from "react-redux";
-
-
-import SinglePlayerCheckers from "./Games/Checkers/SinglePlayer/CheckerSinglePlayer";
 import CommingSoon from "./Common/CommingSoon";
 import TicTacToeMultiPlayerConfig from "./Games/TicTacToe/MultiPlayer/Pages/TicTacToeMultiPlayerConfig";
 import TicTacToeMultiPlayerHome from "./Games/TicTacToe/MultiPlayer/Pages/TicTacToeMultiPlayerHome";
 import CheckerSinglePlayer from "./Games/Checkers/SinglePlayer/CheckerSinglePlayer";
 import CheckersMultiPlayerConfig from "./Games/Checkers/MultiPlayer/Pages/CheckersMultiPlayerConfig";
 import CheckersMultiPlayerHome from "./Games/Checkers/MultiPlayer/Pages/CheckersMultiPlayerHome";
-
+import TicTacToeSinglePlayer from "./Games/TicTacToe/SinglePlayer/TicTacToeSinglePlayer";
 
 
 function App() {
@@ -34,7 +29,7 @@ function App() {
           <Route exact path="/home" element={<Home />} /> 
 
           //Tic Tac Toe
-          <Route exact path="/TicTacToeSinglePlayer" element={<CommingSoon/>}/>
+          <Route exact path="/TicTacToeSinglePlayer" element={<TicTacToeSinglePlayer/>}/>
           <Route exact path="/TicTacToeMultiPlayerHome" element={<TicTacToeMultiPlayerHome/>}/>  
           <Route exact path="/TicTacToeMultiPlayerConfig" element={<TicTacToeMultiPlayerConfig/>}/> 
 
