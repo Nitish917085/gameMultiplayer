@@ -7,12 +7,14 @@
   align-items: center;
 
   &>.boardSlate {  
-    width: 400px;
-    height: 400px;
+    width: 374px;
+    height: 374px;
 
     &>.status{
       display: flex;
       justify-content: center;
+      font-size: 1.5rem;
+      color: #72021e;
     }
 
     &>.playAgainButton{
@@ -22,8 +24,13 @@
           padding: 7px;
           border-radius: 5px;
           background-color: #04862d;
-          :hover{
+          box-shadow:
+          5px 5px 10px rgba(0, 0, 0, 0.5),
+          -5px -5px 10px rgba(255, 255, 255, 0.5);
+       
+          &:hover{
             cursor: pointer;
+            background-color: #16ea59;
           }
         }
     }

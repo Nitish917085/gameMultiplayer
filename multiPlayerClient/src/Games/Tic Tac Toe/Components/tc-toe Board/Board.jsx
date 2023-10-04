@@ -112,6 +112,7 @@ const Board = ({ socket, room_id }) => {
 						{renderSquare(8)}
 					</div>
 				</div>
+				<br/>
 				<div className='playAgainButton' ><div onClick={PlayAgain}>Play Again</div></div>
 			</div>
 		</div>
