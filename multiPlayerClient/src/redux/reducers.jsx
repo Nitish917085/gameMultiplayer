@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   user:{},
   roomId:"",
+  checkerColor:''
 
 };
 
@@ -16,9 +17,12 @@ const userSlice = createSlice({
     setRoomId: (state, action) => {
       state.roomId = action.payload;
     }, 
+    setMyCheckerColor:(state,action)=>{
+        state.checkerColor=action.payload
+    }
   },
 });
 
-export const { setUsers,setRoomId} = userSlice.actions;
+export const { setUsers,setRoomId,setMyCheckerColor} = userSlice.actions;
 
 export default userSlice.reducer;

@@ -11,9 +11,16 @@ import Home from "./Pages/Dashboard/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import { useSelector } from "react-redux";
 
-import TicTacToePlay from "./Games/Tic Tac Toe/Pages/TicTacPlay";
-import Checkers from "./Games/Checkers/SinglePlayer/Checkers";
-import TicTackToe from "./Games/Tic Tac Toe/Pages/TicTacToeHome";
+
+import SinglePlayerCheckers from "./Games/Checkers/SinglePlayer/CheckerSinglePlayer";
+import CommingSoon from "./Common/CommingSoon";
+import TicTacToeMultiPlayerConfig from "./Games/TicTacToe/MultiPlayer/Pages/TicTacToeMultiPlayerConfig";
+import TicTacToeMultiPlayerHome from "./Games/TicTacToe/MultiPlayer/Pages/TicTacToeMultiPlayerHome";
+import CheckerSinglePlayer from "./Games/Checkers/SinglePlayer/CheckerSinglePlayer";
+import CheckersMultiPlayerConfig from "./Games/Checkers/MultiPlayer/Pages/CheckersMultiPlayerConfig";
+import CheckersMultiPlayerHome from "./Games/Checkers/MultiPlayer/Pages/CheckersMultiPlayerHome";
+
+
 
 function App() {
   const user = useSelector((state) => state.user)
@@ -25,9 +32,24 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LogReg />} />
           <Route exact path="/home" element={<Home />} /> 
-          <Route exact path="/tictactoe" element={<TicTackToe/>}/>  
-          <Route exact path="/tictactoeplay" element={<TicTacToePlay/>}/>  
-          <Route exact path="/checkers" element={<Checkers/>}/>            
+
+          //Tic Tac Toe
+          <Route exact path="/TicTacToeSinglePlayer" element={<CommingSoon/>}/>
+          <Route exact path="/TicTacToeMultiPlayerHome" element={<TicTacToeMultiPlayerHome/>}/>  
+          <Route exact path="/TicTacToeMultiPlayerConfig" element={<TicTacToeMultiPlayerConfig/>}/> 
+
+          //Checker Routes
+          <Route exact path="/CheckerSinglePlayer" element={<CheckerSinglePlayer/>}/>
+          <Route exact path="/CheckersMultiPlayerConfig" element={<CheckersMultiPlayerConfig/>}/>  
+          <Route exact path="/CheckersMultiPlayerHome" element={<CheckersMultiPlayerHome/>}/> 
+          //Chess Routes
+          <Route exact path="/ChessSinglePlayer" element={<CommingSoon/>}/>
+          <Route exact path="/ChessMultiPlayerConfig" element={<CommingSoon/>}/>
+          <Route exact path="/ChessMultiPlayerHome" element={<CommingSoon/>}/>
+
+          //Snake Routes
+          <Route exact path="/SnakeSinglePlayer" element={<CommingSoon/>}/>
+
         </Routes>
       </Router>
     </>

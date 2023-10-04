@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client'
 import './play.css'
-import { baseUrl } from '../../../services/api';
+import { baseUrl } from '../../../../services/api';
 import { useSelector } from 'react-redux';
-import Loading from '../Components/Loading/Loading';
-import Board from '../Components/tc-toe Board/Board';
+import Board from '../Components/TicTacToeBoard/Board';
+import Loading from "../Components/Loading/Loading"
 
 let socket;
-const TicTacToePlay = () => {
+const TicTacToeMultiPlayerConfig = () => {
 
     const navigate = useNavigate()
     const ENDPT = `${baseUrl}/`
@@ -58,4 +58,4 @@ const TicTacToePlay = () => {
     )
 }
 
-export default TicTacToePlay
+export default TicTacToeMultiPlayerConfig

@@ -17,6 +17,24 @@ const game_join = async (socket,io) => {
     })
 }
 
+const checkersGameJoin = async (socket,io) => {
+
+    socket.on('joinCheckers', async room_id => {
+        console.log('user joined', room_id);
+        socket.join(room_id);
+
+        const oyo_room = await Room.findOne({ uID: room_id })
+            .catch((err) => {
+                console.log('error occured while checking room', err)
+            });
+
+        if (oyo_room && oyo_room.noOfUser === 2) {
+            io.to(room_id).emit('youCanPLayNow');
+        }
+    })
+}
+
+
 const onClickSquare = async (socket,io) => {
     socket.on('squareClicked', ({ i, name, user_id, room_id }) => {
         const click = {
@@ -36,4 +54,22 @@ const palyAgian = async (socket,io) => {
     })
 }
 
-module.exports = { game_join,palyAgian,onClickSquare }
+const checkersGameUpdate =async(socket,io)=>{
+    socket.on('onPlayersMove',(data)=>{
+        io.to(data.room_id).emit('onPlayerMoveRecieved',data)
+    })
+}
+
+const chekersGameWins = async(socket,io)=>{
+    socket.on('checkersPlayersWins',data=>{
+            socket.emit('checkersPlayersWins',data)
+    })
+}
+
+const checkersPlayAgain=async(socket,io)=>{
+    socket.on('checkersPlayAgain',()=>{
+        socket.emit('checkersPlayAgain')
+    })
+}
+
+module.exports = { game_join,palyAgian,onClickSquare,checkersGameJoin,checkersGameUpdate,chekersGameWins,checkersPlayAgain }

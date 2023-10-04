@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Checkers.css';
+import { useSelector } from 'react-redux';
 
 const initialBoard = [
   ['_', 'B', '_', 'B', '_', 'B', '_', 'B'],
@@ -15,15 +16,21 @@ const initialBoard = [
 const pieceColors = {
   'B': 'black',
   'W': 'white',
-  'KB':'kingBlack',
+  'KB': 'kingBlack',
   'KW': 'kingWhite'
 };
 
-const Checkers = () => {
+const MultiPlayerCheckers = ({ socket, room_id }) => {
+
+  const myColor= useSelector(state=>state.checkerColor)
+
+
   const [board, setBoard] = useState(initialBoard);
   const [turn, setTurn] = useState('W');
+  const [playerTurn,setPlayerTurn]=useState('')
   const [message, setMessage] = useState('');
   const [isBlackWin, setIsBlaclWins] = useState(0)
+  
 
   const handlePieceDragStart = (event, row, col, piece) => {
     event.dataTransfer.setData('piece', piece);
@@ -48,19 +55,33 @@ const Checkers = () => {
       const updatedBoard = [...board];
       updatedBoard[row][col] = droppedPiece;
       updatedBoard[startRow][startCol] = '_';
-      setBoard(updatedBoard);
-      setTurn(turn === 'W' ? 'B' : 'W');
+
+      const playersTurn = turn === 'W' ? 'B' : 'W'
+
+      const updateGameMoves = {
+        updatedBoard, playersTurn, room_id
+      }
+
+      socket.emit('onPlayersMove', updateGameMoves);      
       setMessage('');
-    } else
-      setMessage('Invalid Move! Try again.');
+    } 
   };
 
   const isValidMove = (startRow, startCol, endRow, endCol, piece) => {
     if (board[endRow][endCol] !== '_')
       return false;
 
-    if (!piece.includes(turn))
+    if (!piece.includes(turn)){
+      setMessage('Invalid Move! Try again.');
+
       return false;
+
+    }
+
+    if(!(myColor == turn)){
+      setMessage("Its not your turn")
+      return false
+    }
 
     // Allow normal pieces to move diagonally forward
     if ((piece === 'W' && endRow < startRow) || (piece === 'B' && endRow > startRow)) {
@@ -93,9 +114,10 @@ const Checkers = () => {
         }
       }
     }
-
+    setMessage('Invalid Move! Try again.');
     return false;
   };
+
 
   const isPlayerWin = () => {
     let white = 0;
@@ -109,10 +131,13 @@ const Checkers = () => {
       }
     }
     if (!white)   // set if black wins to -1 if white to 1 other wise zero
-      setIsBlaclWins(1)
+       socket.emit('checkersPlayersWins',{winValue:1,room_id})
+      // setIsBlaclWins(1)
     if (!black)
-      setIsBlaclWins(-1)
+    socket.emit('checkersPlayersWins',{winValue:-1,room_id})
+      // setIsBlaclWins(-1)
   }
+
 
   const playAgain = () => {
     setIsBlaclWins(0)
@@ -120,16 +145,32 @@ const Checkers = () => {
   }
 
   useEffect(() => {
+    socket.on('onPlayerMoveRecieved', data => {
+      setBoard(data.updatedBoard);
+      setTurn(data.playersTurn);
+    })
+
+    socket.on('checkersPlayersWins',data=>{
+      setIsBlaclWins(data.winValue)
+    })
+
+    socket.on('checkersPlayAgain',()=>{
+      playAgain();
+    })
+  }, [])
+
+  useEffect(() => {
     isPlayerWin();
   }, [board])
+
+  const color = myColor=='W'?"White Color":"Black Color"
 
   return (
     <div className="checkers">
       {
         isBlackWin == 0 ? <div>
 
-          <h1>Checkers</h1>
-          <h5>Current Turn: {turn === 'W' ? 'White' : 'Black'}</h5>
+          <h5>Current Turn: {turn === myColor ? `Yours ${color}`  : 'Opponent '}</h5>
           <div className="board">
             {board.map((row, rowIndex) => (
               <div key={rowIndex} className="row">
@@ -137,7 +178,7 @@ const Checkers = () => {
                   <div
                     key={colIndex}
                     className={`square ${pieceColors[piece]}`}
-                    style={{backgroundColor:((rowIndex+colIndex)%2!=0)?"gray":"white"}}
+                    style={{ backgroundColor: ((rowIndex + colIndex) % 2 != 0) ? "gray" : "white" }}
                     onDragOver={handleSquareDragOver}
                     onDrop={(e) => handleSquareDrop(e, rowIndex, colIndex)}
                     draggable={piece !== '_'}
@@ -160,4 +201,4 @@ const Checkers = () => {
   );
 };
 
-export default Checkers;
+export default MultiPlayerCheckers;

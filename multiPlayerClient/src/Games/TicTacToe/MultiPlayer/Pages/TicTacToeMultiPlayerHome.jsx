@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { baseUrl } from '../../../services/api';
-import { setRoomId } from '../../../redux/reducers';
+import { baseUrl } from '../../../../services/api';
+import { setRoomId } from '../../../../redux/reducers';
 import axios from 'axios';
 import './play.css'
 
-const TicTackToe = () => {
+const TicTacToeMultiPlayerHome = () => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -39,7 +39,7 @@ const TicTackToe = () => {
     } else if (res.data.doc) {
       console.log("ressRooommm")
       dispatch(setRoomId(room_id))
-      navigate('/tictactoeplay')
+      navigate('/TicTacToeMultiPlayerConfig')
     }
   }
 
@@ -47,7 +47,7 @@ const TicTackToe = () => {
   const genereateUniqueID = async () => {
     const res = await axios.get(`${baseUrl}/create_room`)
     dispatch(setRoomId(res.data))
-    navigate('/tictactoeplay')
+    navigate('/TicTacToeMultiPlayerConfig')
   }
 
   useEffect(() => {
@@ -68,13 +68,10 @@ const TicTackToe = () => {
           id="join Room"
           placeholder='Enter Room ID' />
         <button onClick={() => joinRoom()}>Join Room</button>
-      </div>
-      
-        <button  onClick={() => genereateUniqueID()}>Create Room</button>
-
-
+      </div>      
+      <button  onClick={() => genereateUniqueID()}>Create Room</button>
     </div>
   )
 }
 
-export default TicTackToe;
+export default TicTacToeMultiPlayerHome;

@@ -14,32 +14,32 @@ import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
 
 
 const LogReg = () => {
-  console.log("base",baseUrl)
+  console.log("base", baseUrl)
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [isProgressBarShow, setIsProgressBar] = useState(false)
   const [isRegLog, setIsRegLog] = useState(false);
   const [details, setDetails] = useState({});
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsProgressBar(true)
 
     var routeUrl = isRegLog ? "userRegistration" : "userLogin";
 
-    console.log("roteHit",routeUrl)
+    console.log("roteHit", routeUrl)
     const response = await axios.post(`${baseUrl}/${routeUrl}`, details);
     setIsProgressBar(false)
 
     if (response.status == 201) {
       alert(response.data.error);
     } else if (response.status == 200) {
-       if(isRegLog){
+      if (isRegLog) {
         alert(response.data.error)
         setIsRegLog(!isRegLog)
         return
-       }    
+      }
       const token = response.data.token;
       Cookies.set("userToken", token);
       dispatch(setUsers(response.data));
@@ -65,7 +65,7 @@ const LogReg = () => {
     if (response.status == 200) {
       const token = response.data.token;
       Cookies.set("userToken", token);
-      console.log("userLogin",response.data)
+      console.log("userLogin", response.data)
       dispatch(setUsers(response.data));
       navigate(`/home`);
     } else return;
@@ -79,11 +79,11 @@ const LogReg = () => {
     <>
       <div className="logReg">
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
-        {isProgressBarShow && <div className="modal-overlay">
-          <div className="modal-overlay">
-            <CircularProgress />
-          </div>
-        </div>}
+          {isProgressBarShow && <div className="modal-overlay">
+            <div className="modal-overlay">
+              <CircularProgress />
+            </div>
+          </div>}
           <div className="formItems">
             <PersonIcon />
             <input
