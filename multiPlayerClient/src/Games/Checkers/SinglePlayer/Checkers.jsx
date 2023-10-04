@@ -151,7 +151,7 @@ const Checkers = () => {
           </div>
           <div className="message">{' '}{message}</div>
         </div> : <div className='result'>
-          {isBlackWin == -1 ? "Black Wins" : "White Wins"}
+          {isBlackWin == -1 ? "White Wins" : "Black Wins"}
           <div className="playAgain" onClick={() => playAgain()}>Play Again</div>
         </div>
       }
