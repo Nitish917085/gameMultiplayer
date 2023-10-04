@@ -69,7 +69,6 @@ const TicTackToe = () => {
           placeholder='Enter Room ID' />
         <button onClick={() => joinRoom()}>Join Room</button>
       </div>
-       <br/>
       
         <button  onClick={() => genereateUniqueID()}>Create Room</button>
 

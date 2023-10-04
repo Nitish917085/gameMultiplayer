@@ -87,7 +87,7 @@ const Checkers = () => {
       if (Math.abs(startRow - endRow) === 2 && Math.abs(startCol - endCol) === 2) {
         const capturedPiece = board[(startRow + endRow) / 2][(startCol + endCol) / 2];
         if ((piece === 'KW' && (capturedPiece === 'B' || capturedPiece === 'KB')) ||
-          (piece === 'KB' && (capturedPiece === 'W' || capturedPiece === 'KB'))) {
+          (piece === 'KB' && (capturedPiece === 'W' || capturedPiece === 'KW'))) {
           board[(startRow + endRow) / 2][(startCol + endCol) / 2] = '_';
           return true;
         }

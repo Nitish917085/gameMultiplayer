@@ -10,9 +10,10 @@ import LogReg from "./Pages/Login/LogReg";
 import Home from "./Pages/Dashboard/Home";
 import NavBar from "./Components/NavBar/NavBar";
 import { useSelector } from "react-redux";
-import TicTackToe from "./Games/Tic Tac Toe/Pages/TicTacToeHome";
+
 import TicTacToePlay from "./Games/Tic Tac Toe/Pages/TicTacPlay";
-import Checkers from "./Games/Checkers/Checkers";
+import Checkers from "./Games/Checkers/SinglePlayer/Checkers";
+import TicTackToe from "./Games/Tic Tac Toe/Pages/TicTacToeHome";
 
 function App() {
   const user = useSelector((state) => state.user)
