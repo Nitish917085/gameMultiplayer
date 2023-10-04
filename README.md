@@ -2,10 +2,10 @@
 
 server
 #build
-npm i
+npm i,
 npm start
 
 client
 #build
-npm i
+npm i,
 npm run dev
