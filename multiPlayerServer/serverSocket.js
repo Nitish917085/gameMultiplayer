@@ -10,7 +10,7 @@ const { gameControllers } = require("./routes/gameControllers");
 const app = express();
 
 const corsOrigin ={
-  origin:['http://localhost:5173'], 
+  origin:['http://localhost:5173','https://game-multiplayer-three.vercel.app'], 
   credentials:true,            
   optionSuccessStatus:200
 }
@@ -24,7 +24,7 @@ app.use("/",routes)
 const httpServer = createServer(app);
 const io = new Server(httpServer,{
   cors:{
-    origin:'http://localhost:5173'
+    origin:['http://localhost:5173','https://game-multiplayer-three.vercel.app']
   }
 });
 

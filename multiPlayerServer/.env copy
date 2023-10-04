@@ -1,2 +1,0 @@
-MONGO_URL = "mongodb+srv://miniTwitterClone:IvXVhJly969nEwvk@cluster0.f93y4ir.mongodb.net/miniTwitterClone?retryWrites=true&w=majority"
-JWT_SECRET = "sejkhfduy"
