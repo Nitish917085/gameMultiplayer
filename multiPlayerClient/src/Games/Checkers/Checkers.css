@@ -2,14 +2,11 @@
   text-align: center;
   font-family: Arial, sans-serif;
   height: calc(100vh - 60px);
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  background-image: url("https://images.unsplash.com/photo-1610232826230-e5e6c6a1efef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1510&q=80")
 }
 
 .board {
@@ -138,4 +135,17 @@ p {
 
 .result{
   font-size: xx-large;
+}
+
+.gameChekersHeader{
+  color: white;
+  display:  flex;
+  justify-content: space-between;
+}
+
+.ruleButton{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

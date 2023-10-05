@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './Checkers.css';
+import '../../../Checkers.css';
 import { useSelector } from 'react-redux';
+import CheckersRules from '../../../CheckersRules/CheckersRules';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 const initialBoard = [
   ['_', 'B', '_', 'B', '_', 'B', '_', 'B'],
@@ -22,15 +24,18 @@ const pieceColors = {
 
 const MultiPlayerCheckers = ({ socket, room_id }) => {
 
-  const myColor= useSelector(state=>state.checkerColor)
+  const myColor = useSelector(state => state.checkerColor)
 
 
   const [board, setBoard] = useState(initialBoard);
   const [turn, setTurn] = useState('W');
-  const [playerTurn,setPlayerTurn]=useState('')
+  const [playerTurn, setPlayerTurn] = useState('')
   const [message, setMessage] = useState('');
   const [isBlackWin, setIsBlaclWins] = useState(0)
-  
+  const [isRuleModelOpen, setIsRuleModalOpen] = useState(false)
+
+  const isRulesModalOpenFun = (isOpen) => setIsRuleModalOpen(isOpen)
+
 
   const handlePieceDragStart = (event, row, col, piece) => {
     event.dataTransfer.setData('piece', piece);
@@ -62,23 +67,23 @@ const MultiPlayerCheckers = ({ socket, room_id }) => {
         updatedBoard, playersTurn, room_id
       }
 
-      socket.emit('onPlayersMove', updateGameMoves);      
+      socket.emit('onPlayersMove', updateGameMoves);
       setMessage('');
-    } 
+    }
   };
 
   const isValidMove = (startRow, startCol, endRow, endCol, piece) => {
     if (board[endRow][endCol] !== '_')
       return false;
 
-    if (!piece.includes(turn)){
+    if (!piece.includes(turn)) {
       setMessage('Invalid Move! Try again.');
 
       return false;
 
     }
 
-    if(!(myColor == turn)){
+    if (!(myColor == turn)) {
       setMessage("Its not your turn")
       return false
     }
@@ -131,11 +136,11 @@ const MultiPlayerCheckers = ({ socket, room_id }) => {
       }
     }
     if (!white)   // set if black wins to -1 if white to 1 other wise zero
-       socket.emit('checkersPlayersWins',{winValue:1,room_id})
-      // setIsBlaclWins(1)
+      socket.emit('checkersPlayersWins', { winValue: 1, room_id })
+    // setIsBlaclWins(1)
     if (!black)
-    socket.emit('checkersPlayersWins',{winValue:-1,room_id})
-      // setIsBlaclWins(-1)
+      socket.emit('checkersPlayersWins', { winValue: -1, room_id })
+    // setIsBlaclWins(-1)
   }
 
 
@@ -150,11 +155,11 @@ const MultiPlayerCheckers = ({ socket, room_id }) => {
       setTurn(data.playersTurn);
     })
 
-    socket.on('checkersPlayersWins',data=>{
+    socket.on('checkersPlayersWins', data => {
       setIsBlaclWins(data.winValue)
     })
 
-    socket.on('checkersPlayAgain',()=>{
+    socket.on('checkersPlayAgain', () => {
       playAgain();
     })
   }, [])
@@ -163,14 +168,16 @@ const MultiPlayerCheckers = ({ socket, room_id }) => {
     isPlayerWin();
   }, [board])
 
-  const color = myColor=='W'?"White Color":"Black Color"
+  const color = myColor == 'W' ? "White Color" : "Black Color"
 
   return (
     <div className="checkers">
       {
         isBlackWin == 0 ? <div>
-
-          <h5>Current Turn: {turn === myColor ? `Yours ${color}`  : 'Opponent '}</h5>
+          <div className='gameChekersHeader'>
+            <h5>Current Turn: {turn === myColor ? `Yours ${color}` : 'Opponent '}</h5>
+            <div className="ruleButton" onClick={() => isRulesModalOpenFun(true)}>Rules <LibraryBooksIcon/></div>
+          </div>
           <div className="board">
             {board.map((row, rowIndex) => (
               <div key={rowIndex} className="row">
@@ -196,6 +203,8 @@ const MultiPlayerCheckers = ({ socket, room_id }) => {
           <div className="playAgain" onClick={() => playAgain()}>Play Again</div>
         </div>
       }
+      {isRuleModelOpen && <CheckersRules closeModal={isRulesModalOpenFun} />}
+
 
     </div>
   );

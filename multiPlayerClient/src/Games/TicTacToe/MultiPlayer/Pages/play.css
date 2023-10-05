@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     background-image: url(  "https://media.istockphoto.com/id/91227309/photo/crosses-and-noughts-game.jpg?s=1024x1024&w=is&k=20&c=aPxTPMOoIov7CqZsTWHnw19TmdJwG-RjdLXLs-heQRE=");
+    gap:20px;
     
     &>button{
         width: 130px;
@@ -38,6 +39,9 @@
             cursor: pointer;
             background-color: blueviolet;
         }
+    }
+    &>input {
+        width: 300px;
     }
 
 }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Checkers.css';
+import '../Checkers.css';
+import CheckersRules from '../CheckersRules/CheckersRules';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 const initialBoard = [
   ['_', 'B', '_', 'B', '_', 'B', '_', 'B'],
@@ -15,7 +17,7 @@ const initialBoard = [
 const pieceColors = {
   'B': 'black',
   'W': 'white',
-  'KB':'kingBlack',
+  'KB': 'kingBlack',
   'KW': 'kingWhite'
 };
 
@@ -24,6 +26,10 @@ const CheckerSinglePlayer = () => {
   const [turn, setTurn] = useState('W');
   const [message, setMessage] = useState('');
   const [isBlackWin, setIsBlaclWins] = useState(0)
+  const [isRuleModelOpen, setIsRuleModalOpen] = useState(false)
+
+
+  const isRulesModalOpenFun=(isOpen)=>setIsRuleModalOpen(isOpen)
 
   const handlePieceDragStart = (event, row, col, piece) => {
     event.dataTransfer.setData('piece', piece);
@@ -127,7 +133,10 @@ const CheckerSinglePlayer = () => {
     <div className="checkers">
       {
         isBlackWin == 0 ? <div>
-          <h5>Current Turn: {turn === 'W' ? 'White' : 'Black'}</h5>
+          <div className='gameChekersHeader'>
+            <h5>Current Turn: {turn === 'W' ? 'White' : 'Black'}</h5>
+            <div className='ruleButton' onClick={()=>isRulesModalOpenFun(true)}>Rules <LibraryBooksIcon/></div>
+          </div>
           <div className="board">
             {board.map((row, rowIndex) => (
               <div key={rowIndex} className="row">
@@ -135,7 +144,7 @@ const CheckerSinglePlayer = () => {
                   <div
                     key={colIndex}
                     className={`square ${pieceColors[piece]}`}
-                    style={{backgroundColor:((rowIndex+colIndex)%2!=0)?"gray":"white"}}
+                    style={{ backgroundColor: ((rowIndex + colIndex) % 2 != 0) ? "gray" : "white" }}
                     onDragOver={handleSquareDragOver}
                     onDrop={(e) => handleSquareDrop(e, rowIndex, colIndex)}
                     draggable={piece !== '_'}
@@ -153,6 +162,8 @@ const CheckerSinglePlayer = () => {
           <div className="playAgain" onClick={() => playAgain()}>Play Again</div>
         </div>
       }
+      {isRuleModelOpen && <CheckersRules closeModal={isRulesModalOpenFun}/>}
+
 
     </div>
   );

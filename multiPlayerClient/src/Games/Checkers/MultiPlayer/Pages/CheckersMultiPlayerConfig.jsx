@@ -5,7 +5,6 @@ import io from 'socket.io-client'
 import './play.css'
 import { useSelector } from 'react-redux';
 import Loading from "../Components/Loading/Loading";
-
 import MultiPlayerCheckers from '../Components/CheckersBoard/MultiPlayerCheckers';
 import { baseUrl } from '../../../../services/api';
 

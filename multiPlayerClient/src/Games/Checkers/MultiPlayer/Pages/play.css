@@ -1,51 +1,58 @@
-.play{
+.play {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 60px);    
+    height: calc(100vh - 60px);
     align-items: center;
     justify-content: center;
-    background-image: url("https://media.istockphoto.com/id/1297555547/photo/male-hand-moves-a-piece-of-checkers-black-and-white-checkers-games-for-intelligence-and.jpg?s=1024x1024&w=is&k=20&c=dioMP-E1wYLb-Y8rwY_To735oV22JpGZFZgWAVsWZZ8=");
+    gap: 20px;
     
-    &>button{
+    &>button {
         width: 130px;
         height: 3rem;
-        padding:4px;
-        border:none;
+        padding: 4px;
+        border: none;
         color: white;
-        border-radius:  4px;
+        border-radius: 4px;
         background-color: rgb(65, 5, 56);
 
-        &:hover{
+        &:hover {
             cursor: pointer;
             background-color: blueviolet;
         }
     }
-   
+
 }
-.joinRoom{
+
+.joinRoom {
     display: flex;
 
-    &>button{
+    &>button {
         width: 130px;
         height: 3rem;
-        padding:4px;
-        border:none;
+        padding: 4px;
+        border: none;
         color: white;
-        border-radius:  0px 4px 4px 0px;
+        border-radius: 0px 4px 4px 0px;
         background-color: rgb(76, 7, 141);
 
-        &:hover{
+        &:hover {
             cursor: pointer;
             background-color: blueviolet;
         }
+
+    }
+
+    &>input {
+        width: 300px;
     }
 
 }
-.tictactoeroomidimput{
+
+.tictactoeroomidimput {
     height: 3rem;
     font-size: 2.5rem;
-    padding:4px;
-    border:none;
-    border-radius:  4px 0px 0px 4px;
-    
+    padding: 4px;
+    border: none;
+    border-radius: 4px 0px 0px 4px;
+
 }

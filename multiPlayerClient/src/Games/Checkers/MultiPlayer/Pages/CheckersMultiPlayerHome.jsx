@@ -74,8 +74,7 @@ const CheckersMultiPlayerHome = () => {
         <button onClick={() => joinRoom()}>Join Room</button>
       </div>
       
-        <button  onClick={() => genereateUniqueID()}>Create Room</button>
-
+      <button  onClick={() => genereateUniqueID()}>Create Room</button>
 
     </div>
   )

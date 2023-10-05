@@ -23,8 +23,8 @@ const sendOtp = async (req, res) => {
   const user =await User.findOne({userName:req.body.userName})
   if(!user)
      return res.status(201).json({error:"User Not Found"})
-  if(user.email!== req.body.email)
-      return res.status(201).json({error:"This email is not asssociated with your account"})
+  // if(user.email!== req.body.email)
+  //     return res.status(201).json({error:"This email is not asssociated with your account"})
   // Generate OTP
   const otp = Math.floor(100000 + Math.random() * 900000).toString();
   otpStore[user.email] = otp;
@@ -52,7 +52,7 @@ const sendOtp = async (req, res) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error);
-      return res.status(500).json({ error: 'Failed to send OTP' });
+      return res.status(201).json({ error: 'Failed to send OTP, Either valid email is not registered.' });
     } else {
       console.log('Email sent: ' + info.response);
       return res.status(200).json({ message: 'OTP sent successfully' });
@@ -73,7 +73,8 @@ const otpVerification = async (req, res) => {
 }
 
 const resetPassword =async (req,res)=>{
-
+  try{
+    
   const updatedUserPassword = await User.findOneAndUpdate({userName:req.body.userName},{
     password:req.body.newPassword,
    },{new:true})
@@ -81,6 +82,11 @@ const resetPassword =async (req,res)=>{
   delete otpStore[req.body.email];
 
   return res.status(200).json({ message: 'Password reset successfully' });
+
+  }catch{
+    return res.status(201).json({ error: 'Something went wrong, try again' });
+
+  }
 };
 
 module.exports={resetPassword,sendOtp,otpVerification}

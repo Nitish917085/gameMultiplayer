@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 import ModeSelector from  "../ModeSelector/ModeSelector";
 
 const Home = () => {
-
   const navigate = useNavigate();
   const cookie = Cookies.get("userToken")
   const dispatch = useDispatch()
