@@ -17,7 +17,7 @@ const ForgotPassword = () => {
 
     const handleSendOtp = async (e) => {
         e.preventDefault()
-        const response = await axios.post(`${baseUrl}/sendOtp`, { userName, email })
+        const response = await axios.post(`${baseUrl}/sendOtp`, { userName })
         console.log(response.status)
         if (response.status == 200) {
             setSendOtpFormVisibility(false)
@@ -29,7 +29,7 @@ const ForgotPassword = () => {
     }
 
     const handleVerifyOtp = async () => {
-        const response = await axios.post(`${baseUrl}/veryfyOtp`, { email, otp })
+        const response = await axios.post(`${baseUrl}/veryfyOtp`, { userName, otp })
 
         if (response.status == 200) {
             alert(response.data.message)
@@ -42,7 +42,7 @@ const ForgotPassword = () => {
     }
 
     const handleResetPassword = async () => {
-        const response = await axios.post(`${baseUrl}/resetPassword`, { userName, newPassword, email })
+        const response = await axios.post(`${baseUrl}/resetPassword`, { userName, newPassword })
         if (response.status == 200) {
             alert("Password Successfully updated")
             navigate("/")
@@ -92,6 +92,7 @@ const ForgotPassword = () => {
                             <input placeholder='Enter New Password' className="inputField" type="text" onChange={(e) => setNewPassword(e.target.value)} />
                         </label>
                     </div>
+                    <br/>
                     <div>
                         <label className="label">
                             Confirm New Paswword :{` `}
@@ -104,6 +105,7 @@ const ForgotPassword = () => {
                         <button className="button" onClick={() => handleResetPassword()}>Reset Password</button>
                     </div>
                 </div>}
+                <br/>
                 <div>
                     <button className="button" onClick={() => resetFormDetails()}>Reset Form Details</button>
                 </div>

@@ -62,7 +62,10 @@ const sendOtp = async (req, res) => {
 
 // Route to reset password using OTP
 const otpVerification = async (req, res) => {
-   const { email, otp } = req.body;
+  const user =await User.findOne({userName:req.body.userName})
+
+   const { otp } = req.body;
+   const email = user.email;
 
   if (otp !== otpStore[email]) {
     return res.status(201).json({ error: 'Invalid OTP' });
@@ -74,12 +77,14 @@ const otpVerification = async (req, res) => {
 
 const resetPassword =async (req,res)=>{
   try{
-    
-  const updatedUserPassword = await User.findOneAndUpdate({userName:req.body.userName},{
+    const user =await User.findOne({userName:req.body.userName})
+    const email = user.email;
+
+   const updatedUserPassword = await User.findOneAndUpdate({userName:req.body.userName},{
     password:req.body.newPassword,
    },{new:true})
   // Remove the OTP from the store as it is no longer needed
-  delete otpStore[req.body.email];
+  delete otpStore[email];
 
   return res.status(200).json({ message: 'Password reset successfully' });
 
