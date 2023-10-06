@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client'
-import './play.css'
+import './CheckersMultiPlayerConfig.css'
 import { useSelector } from 'react-redux';
 import Loading from "../Components/Loading/Loading";
 import MultiPlayerCheckers from '../Components/CheckersBoard/MultiPlayerCheckers';
@@ -45,7 +45,7 @@ const CheckersMultiPlayerConfig = () => {
     }
 
     return (
-        <div className='play'>
+        <div className='CheckersMultiPlayerConfig'>
             {(
                 playNow && socketHasBeenInitialized) ? (
                 <div >

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 
 import axios from 'axios';
-import './play.css'
+import './CheckersMultiPlayerConfig.css'
 import { baseUrl } from '../../../../services/api';
 import { setMyCheckerColor, setRoomId } from '../../../../redux/reducers';
 
@@ -61,7 +61,7 @@ const CheckersMultiPlayerHome = () => {
   }, [])
 
   return (
-    <div className="play">
+    <div className="CheckersMultiPlayerConfig">
       <div className='joinRoom'>
         <div className="error" style={{ display: !error ? 'none' : 'flex' }} >{error}</div>
         <input

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import io from 'socket.io-client'
-import './play.css'
+import './TicTacToeMultiPlayerConfig.css'
 import { baseUrl } from '../../../../services/api';
 import { useSelector } from 'react-redux';
 import Board from '../Components/TicTacToeBoard/Board';
@@ -45,7 +45,7 @@ const TicTacToeMultiPlayerConfig = () => {
     }
 
     return (
-        <div className='play'>
+        <div className='TicTacToeMultiPlayerConfig'>
             {(
                 playNow && socketHasBeenInitialized) ? (
                 <div >

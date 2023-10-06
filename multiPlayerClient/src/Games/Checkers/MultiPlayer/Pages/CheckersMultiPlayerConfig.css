@@ -1,0 +1,60 @@
+.CheckersMultiPlayerConfig {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-image: url("https://images.unsplash.com/photo-1610232826230-e5e6c6a1efef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1510&q=80");
+
+    
+    &>button {
+        width: 130px;
+        height: 3rem;
+        padding: 4px;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        background-color: rgb(65, 5, 56);
+
+        &:hover {
+            cursor: pointer;
+            background-color: blueviolet;
+        }
+    }
+
+}
+
+.joinRoom {
+    display: flex;
+
+    &>button {
+        width: 130px;
+        height: 3rem;
+        padding: 4px;
+        border: none;
+        color: white;
+        border-radius: 0px 4px 4px 0px;
+        background-color: rgb(76, 7, 141);
+
+        &:hover {
+            cursor: pointer;
+            background-color: blueviolet;
+        }
+
+    }
+
+    &>input {
+        width: 300px;
+    }
+
+}
+
+.tictactoeroomidimput {
+    height: 3rem;
+    font-size: 2.5rem;
+    padding: 4px;
+    border: none;
+    border-radius: 4px 0px 0px 4px;
+
+}

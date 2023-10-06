@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { baseUrl } from '../../../../services/api';
 import { setRoomId } from '../../../../redux/reducers';
 import axios from 'axios';
-import './play.css'
+import './TicTacToeMultiPlayerConfig.css'
 
 const TicTacToeMultiPlayerHome = () => {
 
@@ -57,7 +57,7 @@ const TicTacToeMultiPlayerHome = () => {
   }, [])
 
   return (
-    <div className="play">
+    <div className="TicTacToeMultiPlayerConfig">
       <div className='joinRoom'>
         <div className="error" style={{ display: !error ? 'none' : 'flex' }} >{error}</div>
         <input
