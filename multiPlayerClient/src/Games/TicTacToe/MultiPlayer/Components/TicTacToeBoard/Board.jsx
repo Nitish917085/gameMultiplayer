@@ -28,7 +28,7 @@ const Board = ({ socket, room_id }) => {
 	const winner = calculateWinner(squares);
 	let status;
 	if (winner) {
-		status = (Player.current === user.userName) ? 'Winner Winner Chicken Dinner ' : 'Better Luck Next Time';
+		status = (Player.current === user.userName) ? 'You winned ' : 'Better Luck Next Time';
 		// status = 'Better Luck Next Time:' +Player.current;
 	} else {
 		status = (Player.current !== user.userName) ? 'Your Chance' : 'Opponent Chance';
