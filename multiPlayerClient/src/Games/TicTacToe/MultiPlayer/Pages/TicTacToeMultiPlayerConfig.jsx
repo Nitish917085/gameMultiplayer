@@ -45,7 +45,7 @@ const TicTacToeMultiPlayerConfig = () => {
     }
 
     return (
-        <div className='TicTacToeMultiPlayerConfig'>
+        <div>
             {(
                 playNow && socketHasBeenInitialized) ? (
                 <div >

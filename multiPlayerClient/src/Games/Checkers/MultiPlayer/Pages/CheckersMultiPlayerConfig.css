@@ -1,14 +1,18 @@
-.CheckersMultiPlayerConfig {
+.checkersMultiPlayerConfig {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 60px);
     align-items: center;
     justify-content: center;
     gap: 20px;
-    background-color: blueviolet;
     background-image: url("https://images.unsplash.com/photo-1610232826230-e5e6c6a1efef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1510&q=80");
 
-    
+    &>.joinRoom{
+        display: flex;
+        flex-direction: column;
+        font-size: 25px;
+    }
+
     &>button {
         width: 130px;
         height: 3rem;
@@ -25,9 +29,12 @@
     }
 
 }
+.error{
+    color: rgb(253, 0, 0);
+}
 
-.joinRoom {
-    display: flex;
+.inputRoomContainer {
+    display: flex;  
 
     &>button {
         width: 130px;
@@ -46,16 +53,11 @@
     }
 
     &>input {
+        height: 48px;
         width: 275px;
+        font-size: 30px;
+        padding:10px;
     }
 
 }
 
-.tictactoeroomidimput {
-    height: 3rem;
-    font-size: 2.5rem;
-    padding: 4px;
-    border: none;
-    border-radius: 4px 0px 0px 4px;
-
-}

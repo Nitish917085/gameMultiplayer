@@ -25,10 +25,10 @@ const Loading = () => {
     };
 
     return (
-        <div className='loadingContainer'>
+        <div className='loadingContainerTicTacToe'>
             Click Below to Copy Room Id and Share it with another player to join room
-            <div id='loadingroom_idcontainer'>
-                <div onClick={copyToClipBoard} id='loadingroom_id'>
+            <div className='loadingroom_idcontainer'>
+                <div onClick={copyToClipBoard} className='loadingroom_id'>
                     {room_id}
                 </div>
                 <div>

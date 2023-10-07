@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Game.css'
+import '../../../TicTacToe.css'
 import { useSelector } from 'react-redux';
 
 const calculateWinner = (squares) => {

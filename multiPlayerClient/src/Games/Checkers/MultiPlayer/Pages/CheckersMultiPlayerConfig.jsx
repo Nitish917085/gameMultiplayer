@@ -45,7 +45,7 @@ const CheckersMultiPlayerConfig = () => {
     }
 
     return (
-        <div className='CheckersMultiPlayerConfig'>
+        <div>
             {(
                 playNow && socketHasBeenInitialized) ? (
                 <div >

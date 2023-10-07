@@ -57,19 +57,19 @@ const TicTacToeMultiPlayerHome = () => {
   }, [])
 
   return (
-    <div className="TicTacToeMultiPlayerConfig">
+    <div className="ticTacToeMultiPlayerConfig">
       <div className='joinRoom'>
         <div className="error" style={{ display: !error ? 'none' : 'flex' }} >{error}</div>
-        <input
-          className='tictactoeroomidimput'
-          type="text"
-          value={room_id}
-          onChange={e => { setError(''); setRoom_id(e.target.value) }}
-          id="join Room"
-          placeholder='Enter Room ID' />
-        <button onClick={() => joinRoom()}>Join Room</button>
-      </div>      
-      <button  onClick={() => genereateUniqueID()}>Create Room</button>
+        <div className='inputRoomContainer'>
+          <input
+            type="text"
+            value={room_id}
+            onChange={e => { setError(''); setRoom_id(e.target.value) }}
+            placeholder='Enter Room ID' />
+          <button onClick={() => joinRoom()}>Join Room</button>
+        </div>
+      </div>
+      <button onClick={() => genereateUniqueID()}>Create Room</button>
     </div>
   )
 }

@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("https://media.istockphoto.com/id/91227309/photo/crosses-and-noughts-game.jpg?s=1024x1024&w=is&k=20&c=aPxTPMOoIov7CqZsTWHnw19TmdJwG-RjdLXLs-heQRE=");
 
   &>.boardSlate {  
     width: 374px;

@@ -1,39 +1,49 @@
-.loadingContainer {
-    padding: 10px;
-    color: #fe0303;
+.loadingContainerTicTacToe {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #ebfc01;
     font-size: 20px;
     word-wrap: break-word;
+    background-image: url("https://media.istockphoto.com/id/91227309/photo/crosses-and-noughts-game.jpg?s=1024x1024&w=is&k=20&c=aPxTPMOoIov7CqZsTWHnw19TmdJwG-RjdLXLs-heQRE=");
 
-}
 
-#loadingroom_id {
-    background-color: rgba(118, 232, 169, 0.5);;
-    border-radius: 5px;
-    padding: 5px;
-    
-    color: #ebfc01;
-    font-size: 3rem;
-    &:hover{
-        cursor: pointer;
-        background-color: #3ef183;
-    }
-    &>div {
-        &>p {
-            background-color: aliceblue;
-            padding: 15px;
+    &>.loadingroom_idcontainer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        color: aliceblue;
+
+        &>.loadingroom_id {
+            background-color: rgba(118, 232, 169, 0.5);
+            ;
             border-radius: 5px;
-            width: fit-content;
-            cursor: pointer;
+            padding: 5px;
+
+            color: #ebfc01;
+            font-size: 3rem;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #3ef183;
+            }
+
+            &>div {
+                &>p {
+                    background-color: aliceblue;
+                    padding: 15px;
+                    border-radius: 5px;
+                    width: fit-content;
+                    cursor: pointer;
+                }
+            }
+
         }
+
     }
 
-}
-
-
-
-#loadingroom_idcontainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
 }
