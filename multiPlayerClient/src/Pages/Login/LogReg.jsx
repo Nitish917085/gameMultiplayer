@@ -135,8 +135,8 @@ const LogReg = () => {
             />
           </div>
           <div className="formItemsButtons">
-            <button className="isRegLogButton" style={{padding:isProgressBarShow?"2px 10px":"10px"}}>
-              {isProgressBarShow ? <CircularProgress size={30} style={{color:'white',height:"100%",padding:'1px'}}/> :<span onClick={()=>handleFormSubmit()} >{ isRegLog? "Register": "Login" }</span> 
+            <button className="isRegLogButton" style={{padding:isProgressBarShow?"4px 10px":"10px"}}>
+              {isProgressBarShow ? <CircularProgress size={25} style={{color:'white',height:"100%",padding:'1px'}}/> :<span onClick={()=>handleFormSubmit()} >{ isRegLog? "Register": "Login" }</span> 
 
               }
             </button>
