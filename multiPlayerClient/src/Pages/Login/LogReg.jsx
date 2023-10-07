@@ -22,8 +22,11 @@ const LogReg = () => {
   const [isRegLog, setIsRegLog] = useState(false);
   const [details, setDetails] = useState({});
 
-  const handleSubmit = async (e) => {
+  const handleSubmit=(e)=>{
     e.preventDefault();
+  }
+
+  const handleFormSubmit = async () => {
     setIsProgressBar(true)
 
     var routeUrl = isRegLog ? "userRegistration" : "userLogin";
@@ -70,7 +73,7 @@ const LogReg = () => {
       navigate(`/home`);
     } else return;
   };
-  const resetPassword=()=>{
+  const resetPassword = () => {
     navigate('/ResetPassword')
   }
 
@@ -82,11 +85,7 @@ const LogReg = () => {
     <>
       <div className="logReg">
         <form className="form" onSubmit={(e) => handleSubmit(e)}>
-          {isProgressBarShow && <div className="modal-overlay">
-            <div className="modal-overlay">
-              <CircularProgress />
-            </div>
-          </div>}
+         
           <div className="formItems">
             <PersonIcon />
             <input
@@ -136,8 +135,10 @@ const LogReg = () => {
             />
           </div>
           <div className="formItemsButtons">
-            <button className="isRegLogButton" type="submit">
-              {isRegLog ? "Register" : "Login"}
+            <button className="isRegLogButton" style={{padding:isProgressBarShow?"2px 10px":"10px"}}>
+              {isProgressBarShow ? <CircularProgress size={30} style={{color:'white',height:"100%",padding:'1px'}}/> :<span onClick={()=>handleFormSubmit()} >{ isRegLog? "Register": "Login" }</span> 
+
+              }
             </button>
             <span
               className="isRegLogClick"
@@ -147,7 +148,7 @@ const LogReg = () => {
               {isRegLog ? "Login?" : "Register?"}
             </span>
           </div>
-          <span className="resetPassword" onClick={()=>resetPassword()}>Reset Password?</span>
+          <span className="resetPassword" onClick={() => resetPassword()}>Reset Password?</span>
         </form>
 
       </div>
