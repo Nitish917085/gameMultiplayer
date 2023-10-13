@@ -17,7 +17,6 @@ const Board = ({ socket, room_id }) => {
   const user = useSelector(state => state.user);
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
-  const [chance, setChance] = useState(1);
   const [player, setPlayer] = useState('');
   
   const winner = calculateWinner(squares);
@@ -38,25 +37,19 @@ const Board = ({ socket, room_id }) => {
         setSquares(updatedSquares);
         setXIsNext(!xIsNext);
         setPlayer(click.user_id);
-        if (chance === 2) {
-          setChance(1);
-        } else if (chance === -1) {
-          setChance(2);
-        }
       }
     });
-  }, [squares, xIsNext, chance]);
+  }, [squares, xIsNext]);
 
   useEffect(() => {
     socket.on('playAgainReceived', () => {
       setSquares(Array(9).fill(null));
-      setChance(1);
       setPlayer('');
     });
   }, []);
 
   const handleClick = (i) => {
-    if (chance === 2 || chance === -1 || calculateWinner(squares) || squares[i]) {
+    if (player==user.userName || calculateWinner(squares) || squares[i]) {
       return;
     }
     const click = {
@@ -66,7 +59,6 @@ const Board = ({ socket, room_id }) => {
       room_id
     };
     socket.emit('squareClicked', click);
-    setChance(-1);
   }
 
   const PlayAgain = () => {
